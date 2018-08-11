@@ -9,7 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-;import java.util.List;
+;import java.sql.Date;
+import java.util.List;
 
 /**
  * Created by dly on 2018/7/13
@@ -28,6 +29,10 @@ public class SpringBootMybatisApplicationTests {
     public void test() throws Exception {
         final List<UserLowCarbon> output = userMapper.findByUserId("u_001");
         log.info("[根据用户名查询] - [{}]", output);
+
+        UserLowCarbon userLowCarbon = new UserLowCarbon("xxxxx18", "u_002", new Date(System.currentTimeMillis()), 1000);
+        int result = userMapper.insertUserLowCarbon(userLowCarbon);
+        log.info("result = " + result);
     }
 
 
