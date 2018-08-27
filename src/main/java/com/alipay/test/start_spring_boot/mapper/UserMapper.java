@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Mapper
 public interface UserMapper {
+
     @Select("SELECT * FROM user_low_carbon WHERE user_id = #{user_id}")
     List<UserLowCarbon> findByUserId(@Param("user_id") String userId);
 
